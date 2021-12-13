@@ -1,6 +1,7 @@
 import os
-
+from django.urls import reverse_lazy
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -17,6 +18,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = reverse_lazy("inicio")
+LOGIN_URL = reverse_lazy("inicio")
+
+AUTH_USER_MODEL = "usuarios.usuario"
 
 # Application definition
 
@@ -27,7 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.posteos'
+    'apps.posteos',
+    'apps.usuarios'
 ]
 
 MIDDLEWARE = [

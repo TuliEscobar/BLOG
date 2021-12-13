@@ -32,17 +32,17 @@
     <body class="text-center">
     
         <main class="form-signin">
-        <form>
+        <form method="POST">{% csrf_token %}
            <!-- <img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
             <h1 class="h3 mb-3 fw-normal">BIENVENIDO AL BLOG</h1>
 
             <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Ingrese su email</label>
+            <input type="text" class="form-control" id="inputUsername" placeholder="Usuario" required name="username">
+            <label for="inputUsername">Ingrese su usuario</label>
             </div>
             <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Ingrese su contraseña</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password">
+            <label for="inputPassword">Ingrese su contraseña</label>
             </div>
 
             <div class="checkbox mb-3">
