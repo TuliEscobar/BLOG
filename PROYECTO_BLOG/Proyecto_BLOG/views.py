@@ -1,6 +1,5 @@
 from django.shortcuts           import render
-from django.views.generic.base  import TemplateView
-from django.views.generic       import CreateView
+from django.views.generic  import TemplateView, DeleteView, CreateView
 from django.urls                import reverse_lazy
 
 from apps.posteos.models        import Posteo
@@ -32,3 +31,4 @@ class EditarPost(UpdateView):
 
     def get_success_url(self, **kwargs):
         return reverse_lazy("inicio")
+

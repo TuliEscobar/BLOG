@@ -13,7 +13,7 @@ urlpatterns = [
     path('logout', auth_views.logout_then_login, name="logout"),
     path("nuevo/", views.NuevoPost.as_view(), name="nuevopost"),
     path("editar/<int:pk>", views.EditarPost.as_view(), name="editarpost"),
-    
+  
 
     #Includes
     path("posteo/", include('apps.posteos.urls'), name="posteo")
