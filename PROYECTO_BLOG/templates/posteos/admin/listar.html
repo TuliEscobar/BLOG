@@ -1,12 +1,6 @@
 {% extends "base/base.html" %}
 
 {% block contenido %}
-<div class="btn-group" role="group" aria-label="Basic example">
-    <a  type="button" href="{% url 'nuevopost' %}" class="btn btn-success">CREAR</a>
-    <button type="button" class="btn btn-warning">MODIFICAR</button>
-    <button type="button" class="btn btn-danger">ELIMINAR</button>
-</div>
-
     <table class="table table-hover">
         <thead>
               <th scope="col">#</th>
@@ -20,7 +14,7 @@
                     <td>{{p.titulo}}</td>
                     <td scope="col">
                         <a href="">Ver</a>
-                        <a href="">Modificar</a>
+                        <a href="{% url 'editarpost' p.id %}">Editar</a>
                         <a href="">Eliminar</a>
                     </td>
                 </tr>

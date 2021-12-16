@@ -5,7 +5,7 @@ from django.urls                import reverse_lazy
 
 from apps.posteos.models        import Posteo
 from apps.posteos.forms         import PosteoForm
-
+from django.views.generic.edit  import UpdateView
 
 class Inicio(TemplateView):
     template_name= "inicio.html"
@@ -24,3 +24,11 @@ class NuevoPost(CreateView):
     def get_success_url(self, **kwargs):
         return reverse_lazy("inicio")
         
+
+class EditarPost(UpdateView):
+    template_name = "posteos/editar.html"
+    model = Posteo
+    form_class = PosteoForm
+
+    def get_success_url(self, **kwargs):
+        return reverse_lazy("inicio")

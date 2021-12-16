@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+
+{% block contenido %}
+    <form method="POST">{% csrf_token %}
+        {{form.as_p}}
+        
+        <div class="row">
+            <div class="col">
+                <button type="submit" href="#" class="btn btn-success">GUARDAR</button>
+                <a type="button" href="{% url 'inicio' %}" class="btn btn-danger">CANCELAR</a>
+            </div>
+        </div>
+    </form>
+    
+{% endblock contenido %}

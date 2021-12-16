@@ -12,7 +12,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name="login.html"), name= "login"),
     path('logout', auth_views.logout_then_login, name="logout"),
     path("nuevo/", views.NuevoPost.as_view(), name="nuevopost"),
-    
+    path("editar/<int:pk>", views.EditarPost.as_view(), name="editarpost"),
     
 
     #Includes
