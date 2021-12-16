@@ -1,17 +1,26 @@
-from django.shortcuts import render
+from django.shortcuts           import render
+from django.views.generic.base  import TemplateView
+from django.views.generic       import CreateView
+from django.urls                import reverse_lazy
 
-from apps.posteos.models import Posteo
+from apps.posteos.models        import Posteo
+from apps.posteos.forms         import PosteoForm
 
 
-#def inicio(request):
-	
+class Inicio(TemplateView):
+    template_name= "inicio.html"
 
-def inicio(request):
-    posteos = Posteo.objects.all()
-    context={
-        "posteos" : posteos
-        }
-    return render(request, "inicio.html", context)
+    def get_context_data(self,**kwargs):
+        context = super(Inicio, self).get_context_data(**kwargs)
+        context ["posteos"] = Posteo.objects.all()
+        return context
 
-def login(request):
-    return render(request, "login.html")
+
+class NuevoPost(CreateView):
+    template_name = "posteos/nuevo.html"
+    model = Posteo
+    form_class = PosteoForm
+
+    def get_success_url(self, **kwargs):
+        return reverse_lazy("inicio")
+        

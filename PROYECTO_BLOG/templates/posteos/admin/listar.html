@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}
+
+{% block contenido %}
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a  type="button" href="{% url 'nuevopost' %}" class="btn btn-success">CREAR</a>
+    <button type="button" class="btn btn-warning">MODIFICAR</button>
+    <button type="button" class="btn btn-danger">ELIMINAR</button>
+</div>
+
+    <table class="table table-hover">
+        <thead>
+              <th scope="col">#</th>
+              <th scope="col">Nombre del Post</th>
+              <th scope="col">Opciones</th>
+        </thead>
+        <tbody>
+            {% for p in posteos %}
+                <tr>
+                    <th scope="row">{{p.id}}</th>
+                    <td>{{p.titulo}}</td>
+                </tr>
+            {% endfor %}                
+        </tbody>
+    </table>
+{% endblock contenido %}
+    
+    
