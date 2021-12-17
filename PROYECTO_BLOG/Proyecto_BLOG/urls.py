@@ -16,5 +16,7 @@ urlpatterns = [
   
 
     #Includes
-    path("posteo/", include('apps.posteos.urls'), name="posteo")
+    path("posteo/", include('apps.posteos.urls'), name="posteo"),
+    path("Usuario/", include('apps.usuarios.urls')),
+
 ]

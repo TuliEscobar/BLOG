@@ -1,5 +1,5 @@
 from django.shortcuts           import render
-from django.views.generic  import TemplateView, DeleteView, CreateView
+from django.views.generic  import TemplateView, ListView, CreateView
 from django.urls                import reverse_lazy
 
 from apps.posteos.models        import Posteo
