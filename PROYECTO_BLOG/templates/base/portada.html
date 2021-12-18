@@ -14,9 +14,15 @@
                     <circle cx="10.5" cy="10.5" r="7.5"></circle>
                     <path d="M21 21l-5.2-5.2"></path>
                 </svg>
+                {% if user.is_authenticated %}
                 <a type="button" href="{% url 'nuevopost' %}" class="btn btn-success">CREAR POST</a>
-                <a type="button" href="{% url 'posteos:admin_listar' %}" class="btn btn-primary">Posteos</a>
-                <a class="btn btn-primary" {% if user.is_authenticated %} href="{% url 'logout' %}">Cerrar Sesion</a>
+                    {% if user.is_admin %}
+                        <a type="button" href="{% url 'posteos:admin_listar' %}" class="btn btn-primary">Posteos</a>
+                    {% endif %}
+                
+                {% endif %}
+                <a class="btn btn-primary"
+                {% if user.is_authenticated %} href="{% url 'logout' %}">Cerrar Sesion</a>
                 {% else %}
                 <a href="{% url 'login' %}">Iniciar Sesion</a>
                 {% endif %}

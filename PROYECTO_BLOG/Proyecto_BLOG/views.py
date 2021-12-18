@@ -1,6 +1,7 @@
 from django.shortcuts           import render
 from django.views.generic  import TemplateView, ListView, CreateView
 from django.urls                import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from apps.posteos.models        import Posteo
 from apps.posteos.forms         import PosteoForm
@@ -15,7 +16,7 @@ class Inicio(TemplateView):
         return context
 
 
-class NuevoPost(CreateView):
+class NuevoPost(LoginRequiredMixin, CreateView):
     template_name = "posteos/nuevo.html"
     model = Posteo
     form_class = PosteoForm
@@ -24,7 +25,7 @@ class NuevoPost(CreateView):
         return reverse_lazy("inicio")
         
 
-class EditarPost(UpdateView):
+class EditarPost(LoginRequiredMixin, UpdateView):
     template_name = "posteos/editar.html"
     model = Posteo
     form_class = PosteoForm
