@@ -24,6 +24,12 @@ class NuevoPost(LoginRequiredMixin, CreateView):
     def get_success_url(self, **kwargs):
         return reverse_lazy("inicio")
         
+    def form_valid(self,form):
+        f = form.save(commit=False)
+        f.usuario_id = self.request.user.id
+        return super(NuevoPost, self).form_valid(form)
+
+
 
 class EditarPost(LoginRequiredMixin, UpdateView):
     template_name = "posteos/editar.html"

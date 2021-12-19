@@ -6,5 +6,5 @@ class PosteoForm(forms.ModelForm):
  
     class Meta:
         model = Posteo
-        fields = ["titulo", "cuerpo", "imagen"]
+        fields = ["titulo", "cuerpo", "imagen","categorias"]
 

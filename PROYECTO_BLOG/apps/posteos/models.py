@@ -1,5 +1,6 @@
 from django.db import models
 
+from apps.usuarios.models import Usuario
 
 class Categoria(models.Model):
 	nombre= models.CharField(max_length=255)
@@ -15,6 +16,7 @@ class Posteo(models.Model):
 	cuerpo = models.CharField(max_length=9999)
 	categorias = models.ManyToManyField(Categoria)
 	imagen = models.ImageField(upload_to="posteos", null=True)
+	usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE,null=True)
 
 
 class Meta:
