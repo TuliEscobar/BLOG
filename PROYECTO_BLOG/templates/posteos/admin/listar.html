@@ -13,9 +13,9 @@
                     <th scope="row">{{p.id}}</th>
                     <td>{{p.titulo}}</td>
                     <td scope="col">
-                        <a href="">Ver</a>
-                        <a href="{% url 'editarpost' p.id %}">Editar</a>
-                        <a href="">Eliminar</a>
+                        <a href="{% url 'posteos:detalle' p.id %}">Ver</a>
+                        <a href="{% url 'editarpost' p.id %}">Editar</a>                                            
+                        <a href="">Eliminar</a>                        
                     </td>
                 </tr>
             {% endfor %}                

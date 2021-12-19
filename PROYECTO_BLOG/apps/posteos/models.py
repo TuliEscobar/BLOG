@@ -8,12 +8,12 @@ class Categoria(models.Model):
 
 class Meta:
 	db_table="categorias"
-	def __str__(self):
-		return self.nombre
+def __str__(self):
+	return self.nombre
 
 class Posteo(models.Model):
 	titulo = models.CharField(max_length=250) 
-	cuerpo = models.CharField(max_length=9999)
+	cuerpo = models.TextField()
 	categorias = models.ManyToManyField(Categoria)
 	imagen = models.ImageField(upload_to="posteos", null=True)
 	usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE,null=True)
