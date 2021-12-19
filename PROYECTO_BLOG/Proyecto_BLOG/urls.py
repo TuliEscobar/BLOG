@@ -21,4 +21,4 @@ urlpatterns = [
     path("posteo/", include('apps.posteos.urls'), name="posteo"),
     path("Usuario/", include('apps.usuarios.urls')),
 
-] + static(settings.MEDIA_URL, document_roots=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
