@@ -1,13 +1,8 @@
-from django.shortcuts import  render
-from django.views.generic import ListView
+
+from django.views.generic import ListView, DetailView
 
 from apps.core.mixins import AdminRequiredMixins
 from .models import Posteo
-
-
-def detalle(request):
-    context= {}
-    return render(request, "posteos/detalle.html", context)
 
 class ListarAdmin(AdminRequiredMixins, ListView):
     template_name= "posteos/admin/listar.html"
@@ -17,6 +12,8 @@ class ListarAdmin(AdminRequiredMixins, ListView):
     def get_queryset(self):
         return Posteo.objects.all().order_by("id")
 
-
+class Detalle(DetailView):
+	template_name = "posteos/detalle.html"
+	model = Posteo 
 
 

@@ -1,7 +1,8 @@
 from django.shortcuts           import render
-from django.views.generic  import TemplateView, ListView, CreateView
+from django.views.generic       import TemplateView, CreateView, DeleteView
 from django.urls                import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http                import Http404
 
 from apps.posteos.models        import Posteo
 from apps.posteos.forms         import PosteoForm
@@ -38,4 +39,5 @@ class EditarPost(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self, **kwargs):
         return reverse_lazy("inicio")
+
 
