@@ -2,6 +2,8 @@
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from . import views
 
@@ -19,4 +21,4 @@ urlpatterns = [
     path("posteo/", include('apps.posteos.urls'), name="posteo"),
     path("Usuario/", include('apps.usuarios.urls')),
 
-]
+] + static(settings.MEDIA_URL, document_roots=settings.MEDIA_ROOT)

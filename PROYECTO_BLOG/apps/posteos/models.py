@@ -3,6 +3,7 @@ from django.db import models
 
 class Categoria(models.Model):
 	nombre= models.CharField(max_length=255)
+	
 
 class Meta:
 	db_table="categorias"
@@ -13,6 +14,7 @@ class Posteo(models.Model):
 	titulo = models.CharField(max_length=250) 
 	cuerpo = models.CharField(max_length=9999)
 	categorias = models.ManyToManyField(Categoria)
+	imagen = models.ImageField(upload_to="posteos", null=True)
 
 
 class Meta:
